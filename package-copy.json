@@ -1,0 +1,50 @@
+{
+  "name": "todo-to-be-core",
+  "version": "0.1.0",
+  "description": "todo manager core library",
+  "main": "build/src/core/library.js",
+  "types": "build/src/core/library.d.ts",
+  "scripts": {
+    "start": "node -r source-map-support/register build/src",
+    "test": "mocha build/test/bootstrap.js \"build/test/**/*.test.js\"",
+    "posttest": "tslint --project ./ --fix",
+    "pretest": "npm run build",
+    "build": "tsc",
+    "prebuild": "rm -rf build && cpx 'src/**/!(*.ts)' build/src -v && cpx 'test/**/!(*.ts)' build/test -v",
+    "dev": "nodemon -e ts,handlebars,json,yml -i build --exec \"npm test\""
+  },
+  "author": "Julian Haeger",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/blessed": "^0.1.10",
+    "@types/bluebird": "^3.5.20",
+    "@types/chai": "^4.0.8",
+    "@types/chalk": "^2.2.0",
+    "@types/commander": "^2.12.2",
+    "@types/fs-extra": "^5.0.0",
+    "@types/guid": "^1.0.0",
+    "@types/js-yaml": "^3.10.1",
+    "@types/lodash": "^4.14.104",
+    "@types/mocha": "^2.2.44",
+    "@types/node": "^8.5.1",
+    "chai": "^4.1.2",
+    "cpx": "^1.5.0",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.9.1",
+    "tslint-config-standard": "^7.0.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "blessed": "^0.1.81",
+    "bluebird": "^3.5.1",
+    "chalk": "^2.3.2",
+    "commander": "^2.14.1",
+    "fs-extra": "^5.0.0",
+    "guid": "0.0.12",
+    "js-yaml": "^3.10.0",
+    "lodash": "^4.17.5",
+    "source-map-support": "^0.5.3"
+  }
+}
